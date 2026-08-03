@@ -2,6 +2,8 @@
 import "../styles/global.css";
 
 const {title = "Prabhaav Pillai"} = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 ---
 
 <html>
@@ -9,16 +11,17 @@ const {title = "Prabhaav Pillai"} = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <link rel="icon" href={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}favicon.ico`} />
 </head>
 
 <body>
 
 <header>
     <nav>
-        <a href="/" class="nav-link">Home</a>
-        <a href="/#projects" class="nav-link">Projects</a>
-        <a href="/#papers" class="nav-link">Papers</a>
-        <a href="/#resume" class="nav-link">Resume</a>
+        <a href={base} class="nav-link">Home</a>
+        <a href={`${base}#projects`} class="nav-link">Projects</a>
+        <a href={`${base}#papers`} class="nav-link">Papers</a>
+        <a href={`${base}#resume`} class="nav-link">Resume</a>
     </nav>
 </header>
 

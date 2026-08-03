@@ -11,7 +11,9 @@ const {
     open = false,
 } = Astro.props;
 
-const coverSrc = cover ? `/images/${cover}` : "/images/placeholder.svg";
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
+const coverSrc = cover ? `${base}images/${cover}` : `${base}images/placeholder.svg`;
 
 const items = media.length
     ? media
@@ -26,7 +28,7 @@ const items = media.length
             src={coverSrc}
             alt={title}
             loading="lazy"
-            onerror="this.onerror=null;this.src='/images/placeholder.svg'"
+            onerror={`this.onerror=null;this.src='${base}images/placeholder.svg'`}
         />
         <div class="proj-info">
             <h3>{title}</h3>
@@ -55,7 +57,7 @@ const items = media.length
                             alt={title}
                             loading="lazy"
                             data-image={m.src}
-                            onerror="this.onerror=null;this.src='/images/placeholder.svg'"
+                            onerror={`this.onerror=null;this.src='${base}images/placeholder.svg'`}
                         />)
                 }
             </div>

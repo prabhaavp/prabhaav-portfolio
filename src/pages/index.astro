@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import PaperCard from "../components/PaperCard.astro";
 
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
 const projects = [
     {
         title: "Vision ASM",
@@ -19,9 +21,9 @@ const projects = [
         tags: ["Python", "C++", "YOLO", "ONNX", "Computer Vision"],
         cover: "vision-asm-1.gif",
         media: [
-            { type: "image", src: "/images/vision-asm-1.gif" },
-            { type: "image", src: "/images/vision-asm-2.png" },
-            { type: "image", src: "/images/vision-asm-3.gif" },
+            { type: "image", src: `${base}images/vision-asm-1.gif` },
+            { type: "image", src: `${base}images/vision-asm-2.png` },
+            { type: "image", src: `${base}images/vision-asm-3.gif` },
         ],
         link: "https://github.com/prabhaavp/vasm-op",
         open: true,
@@ -39,8 +41,8 @@ const projects = [
         tags: ["Python", "Web Scraping", "Embeddings", "TypeScript"],
         cover: "movie-1.png",
         media: [
-            { type: "image", src: "/images/movie-1.png" },
-            { type: "image", src: "/images/movie-2.png" },
+            { type: "image", src: `${base}images/movie-1.png` },
+            { type: "image", src: `${base}images/movie-2.png` },
         ],
         link: "https://github.com/prabhaavp/datamining_881",
     },
@@ -57,7 +59,7 @@ const projects = [
         tags: ["Java", "Android", "Networking"],
         cover: "portvoy-1.png",
         media: [
-            { type: "image", src: "/images/portvoy-1.png" },
+            { type: "image", src: `${base}images/portvoy-1.png` },
         ],
         link: "https://github.com/prabhaavp/PortVoy",
     },
@@ -74,7 +76,7 @@ const projects = [
         tags: ["HTML", "CSS", "JavaScript"],
         cover: "loncapa-1.png",
         media: [
-            { type: "image", src: "/images/loncapa-1.png" },
+            { type: "image", src: `${base}images/loncapa-1.png` },
         ],
         link: "https://github.com/prabhaavp/loncapa-physics-grade-calculator",
     },
@@ -91,7 +93,7 @@ const projects = [
         tags: ["Java", "Android", "Firebase", "ImgBB"],
         cover: "studylink-1.png",
         media: [
-            { type: "image", src: "/images/studylink-1.png" },
+            { type: "image", src: `${base}images/studylink-1.png` },
         ],
         link: "https://github.com/DevT02/cse476",
     },
@@ -108,8 +110,8 @@ const projects = [
         tags: ["JavaScript", "Python", "Traffic Simulation", "Research"],
         cover: "phantom-1.png",
         media: [
-            { type: "image", src: "/images/phantom-1.png" },
-            { type: "image", src: "/images/phantom-2.png" },
+            { type: "image", src: `${base}images/phantom-1.png` },
+            { type: "image", src: `${base}images/phantom-2.png` },
         ],
         link: "https://github.com/lucaswol06/traffic-simulation-de",
     },
@@ -118,19 +120,19 @@ const projects = [
 const papers = [
     {
         title: "Adaptive LLM Load-Balanced Routing",
-        pdf: "/papers/Adaptive_LLM_LoadBalanced_Routing.pdf",
+        pdf: `${base}papers/Adaptive_LLM_LoadBalanced_Routing.pdf`,
     },
     {
         title: "AV Penetration & Phantom Traffic Jams",
-        pdf: "/papers/AV_Penetration_Phantom_Traffic_Jams.pdf",
+        pdf: `${base}papers/AV_Penetration_Phantom_Traffic_Jams.pdf`,
     },
     {
         title: "Learning vs. Heuristic Movie Recommendation",
-        pdf: "/papers/Learning_vs_Heuristic_Movie_Recommendation.pdf",
+        pdf: `${base}papers/Learning_vs_Heuristic_Movie_Recommendation.pdf`,
     },
     {
         title: "Traffic Sign Physical Corruption",
-        pdf: "/papers/TrafficSign_PhysicalCorruption.pdf",
+        pdf: `${base}papers/TrafficSign_PhysicalCorruption.pdf`,
     },
 ];
 ---
@@ -192,10 +194,10 @@ const papers = [
 <section id="resume">
     <h2>Resume</h2>
     <div class="resume-actions">
-        <a class="btn" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Open Resume in New Tab (or to Download)</a>
+        <a class="btn" href={`${base}resume.pdf`} target="_blank" rel="noopener noreferrer">Open Resume in New Tab (or to Download)</a>
     </div>
     <div class="resume-frame">
-        <iframe src="/resume.pdf#view=FitH" title="Resume"></iframe>
+        <iframe src={`${base}resume.pdf#view=FitH`} title="Resume"></iframe>
     </div>
 </section>
 
