@@ -1,0 +1,82 @@
+---
+const {
+    title,
+    tagline,
+    description,
+    details = [],
+    tags = [],
+    cover,
+    media = [],
+    link,
+    open = false,
+} = Astro.props;
+
+const coverSrc = cover ? `/images/${cover}` : "/images/placeholder.svg";
+
+const items = media.length
+    ? media
+    : [{ type: "image", src: coverSrc }];
+---
+
+<article class="card proj" data-project data-open={open}>
+
+    <div class="proj-head">
+        <img
+            class="cover"
+            src={coverSrc}
+            alt={title}
+            loading="lazy"
+            onerror="this.onerror=null;this.src='/images/placeholder.svg'"
+        />
+        <div class="proj-info">
+            <h3>{title}</h3>
+            <p class="tagline">{tagline}</p>
+            {
+                tags.length > 0 && (
+                    <div class="tags">
+                        {tags.map((t) => <span>{t}</span>)}
+                    </div>
+                )
+            }
+        </div>
+        <span class="expand-btn">
+            <span class="chevron" aria-hidden="true">&#9660;</span>
+        </span>
+    </div>
+
+    <div class="proj-detail">
+        <div class="proj-grid">
+            <div class="proj-media">
+                {
+                    items.map((m) => m.type === "video"
+                        ? <video src={m.src} controls preload="metadata"></video>
+                        : <img
+                            src={m.src}
+                            alt={title}
+                            loading="lazy"
+                            data-image={m.src}
+                            onerror="this.onerror=null;this.src='/images/placeholder.svg'"
+                        />)
+                }
+            </div>
+            <div class="proj-text">
+                <p>{description}</p>
+                {
+                    details.length > 0 && (
+                        <ul>
+                            {details.map((d) => <li set:html={d}></li>)}
+                        </ul>
+                    )
+                }
+        {
+            link && (
+                <a class="view-btn" href={link} target="_blank" rel="noopener noreferrer">
+                    View Project
+                </a>
+            )
+        }
+            </div>
+        </div>
+    </div>
+
+</article>

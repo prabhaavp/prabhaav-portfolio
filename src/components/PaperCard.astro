@@ -1,0 +1,24 @@
+---
+const { title, pdf } = Astro.props;
+---
+
+<div class="paper-card">
+
+    <button
+        class="paper-preview"
+        type="button"
+        data-pdf={pdf}
+        aria-label={`Preview ${title}`}
+    >
+        <span class="pdf-thumb">
+            <iframe src={`${pdf}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} title={title} loading="lazy"></iframe>
+        </span>
+        <span class="zoom-hint" aria-hidden="true">&#128269;</span>
+    </button>
+
+    <div class="paper-meta">
+        <h3>{title}</h3>
+        <a class="btn" href={pdf} target="_blank" rel="noopener noreferrer">Open</a>
+    </div>
+
+</div>
