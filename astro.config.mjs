@@ -3,6 +3,5 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://prabhaavp.github.io',
-  base: '/prabhaav-portfolio',
+  site: 'https://prabhaav.me',
 });
