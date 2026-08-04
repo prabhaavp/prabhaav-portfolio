@@ -6,6 +6,15 @@
     --border: #d1d5db;
     --accent: #2563eb;
     --accent-soft: #eff6ff;
+
+    /* Background blur — adjust this to control how soft the backdrop is. */
+    --bg-blur: px;
+    /* White scrim over the background for legibility — raise it to dim the image. */
+    --bg-scrim: 0.6;
+    /* Background image used behind the page. */
+    --bg-image: url("/images/background.png");
+    /* Default background for nav pills. */
+    --nav-bg: rgba(255, 255, 255, 0.82);
 }
 
 * {
@@ -21,7 +30,7 @@ section[id] {
 }
 
 body {
-    background: var(--bg);
+    position: relative;
     color: var(--text);
     font-family:
         Inter,
@@ -37,31 +46,57 @@ body {
     line-height: 1.6;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: -24px;
+    z-index: -2;
+    background: var(--bg-image) center / cover no-repeat;
+    filter: blur(var(--bg-blur));
+    transform: scale(1.05);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: rgba(255, 255, 255, var(--bg-scrim));
+}
+
 
 nav {
     display: flex;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
 
     margin-bottom: 60px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
 }
 
 .nav-link {
-    color: var(--muted);
+    color: #374151;
     font-size: 1.05rem;
     font-weight: 500;
     padding: 8px 18px;
     border-radius: 999px;
+    background: var(--nav-bg);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     transition:
         color 0.15s ease,
-        background 0.15s ease;
+        background 0.15s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
 }
 
 .nav-link:hover {
-    color: var(--accent);
-    background: var(--accent-soft);
+    color: #fff;
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
 }
 
 h1 {
@@ -96,8 +131,45 @@ a:hover {
     text-decoration: underline;
 }
 .hero {
+    padding: 28px 32px;
+    margin: 0 auto 10px;
+    max-width: 780px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(6px);
+}
+
+.hero-grid {
+    display: flex;
+    align-items: center;
+    gap: 24px;
     text-align: center;
-    padding: 5px 0 10px;
+}
+
+.hero-avatar {
+    flex: 0 0 20%;
+    min-width: 110px;
+}
+
+.hero-avatar img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    display: block;
+}
+
+.hero-content {
+    flex: 1 1 80%;
+    min-width: 0;
+}
+
+.hero h1 {
+    margin-top: 0;
 }
 
 .subtitle {
@@ -109,11 +181,13 @@ a:hover {
 .intro {
     margin: 0 auto 10px;
     max-width: 720px;
+    color: #374151;
 }
 
 .hero-actions {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 12px;
     margin-top: 6px;
 }
@@ -520,6 +594,17 @@ section ul li {
 }
 
 @media (max-width: 640px) {
+    .hero-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-avatar {
+        flex: 0 0 auto;
+        width: 140px;
+    }
+    .hero-actions {
+        justify-content: center;
+    }
     .papers-grid {
         grid-template-columns: 1fr;
     }
