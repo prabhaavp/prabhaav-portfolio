@@ -7,13 +7,9 @@
     --accent: #2563eb;
     --accent-soft: #eff6ff;
 
-    /* Background blur — adjust this to control how soft the backdrop is. */
-    --bg-blur: px;
-    /* White scrim over the background for legibility — raise it to dim the image. */
+    --bg-blur: 4px;
     --bg-scrim: 0.6;
-    /* Background image used behind the page. */
     --bg-image: url("/images/background.png");
-    /* Default background for nav pills. */
     --nav-bg: rgba(255, 255, 255, 0.82);
 }
 

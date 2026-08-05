@@ -1,29 +1,28 @@
-# Astro Starter Kit: Minimal
+# Prabhaav Pillai — Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A fast, static, single-page portfolio built with [Astro](https://astro.build). Showcases projects, papers, and a resume, and is deployed to GitHub Pages via GitHub Actions at a custom domain (`prabhaav.me`).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## What it uses
+
+- **Astro** — static, prerendered output
+- **TypeScript / CSS** — custom components (`ProjectCard`, `PaperCard`) and a hand-written stylesheet with a blurred background layer controlled by CSS variables
+- **GitHub Actions** — builds and deploys to GitHub Pages on every push to `main`
+- **Custom domain** — `prabhaav.me` via a `public/CNAME` file
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
 ```text
 /
-├── public/
+├── public/            # Static assets: images, papers, resume.pdf, CNAME
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── components/    # ProjectCard.astro, PaperCard.astro
+│   ├── layouts/       # Layout.astro
+│   ├── pages/         # index.astro
+│   └── styles/        # global.css
+├── .github/
+│   └── workflows/     # deploy.yml (GitHub Pages)
 └── package.json
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
@@ -37,7 +36,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
