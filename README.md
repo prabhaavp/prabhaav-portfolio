@@ -13,7 +13,7 @@ A fast, static, single-page portfolio built with [Astro](https://astro.build). S
 
 ```text
 /
-├── public/            # Static assets: images, papers, resume.pdf, CNAME
+├── public/            # Static assets: images, papers, prabhaav_resume.pdf, CNAME
 ├── src/
 │   ├── components/    # ProjectCard.astro, PaperCard.astro
 │   ├── layouts/       # Layout.astro

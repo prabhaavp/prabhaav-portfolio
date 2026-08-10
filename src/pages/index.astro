@@ -29,6 +29,25 @@ const projects = [
         open: true,
     },
     {
+        title: "PiP Side Camera",
+        tagline: "Real-time Picture-in-Picture side preview for StarPilot.",
+        description:
+            "A real-time driver-assist feature that renders a circular Picture-in-Picture bubble of the adjacent side window from the driver-facing wide-angle camera, surfacing exactly when the turn signal is engaged or a blind spot is detected.",
+        details: [
+            "Appointed to the core StarPilot dev team with repo write access; authored and merged ~1K lines of C++/Python/GLSL to deploy the feature.",
+            "Wrote a custom <a href=\"https://github.com/firestar5683/StarPilot/pull/83\" target=\"_blank\" rel=\"noopener noreferrer\">GLSL shader (PR #83)</a> that fuses Y/UV textures with a circular vignette mask, performing on-GPU NV12-to-RGB conversion for a smooth, cropped bubble preview.",
+            "Engineered zero-copy NV12 buffer slicing and reactive crop-mask configuration for per-vehicle camera calibration.",
+            "Built Galaxy web tooling with Flask REST APIs, a live frame snapshot endpoint, and a side-preview configuration UI with validation, plus unit tests for the device settings layout.",
+            "Wired the bubble to factory BSM, V-ASM, and turn-signal states so it only appears to provide additional lateral awarness.",
+        ],
+        tags: ["Python", "C++", "GLSL", "OpenGL", "Computer Vision"],
+        cover: "pipsidecam-1.png",
+        media: [
+            { type: "image", src: `${base}images/pipsidecam-1.png` },
+        ],
+        link: "https://github.com/firestar5683/StarPilot/pull/83",
+    },
+    {
         title: "UWM IT Goals Dashboard",
         tagline: "Senior capstone with United Wholesale Mortgage.",
         description:
@@ -235,10 +254,10 @@ const papers = [
 <section id="resume">
     <h2>Resume</h2>
     <div class="resume-actions">
-        <a class="btn" href={`${base}resume.pdf`} target="_blank" rel="noopener noreferrer">Open Resume in New Tab (or to Download)</a>
+        <a class="btn" href={`${base}prabhaav_resume.pdf`} target="_blank" rel="noopener noreferrer">Open Resume in New Tab (or to Download)</a>
     </div>
     <div class="resume-frame">
-        <iframe src={`${base}resume.pdf#view=FitH`} title="Resume"></iframe>
+        <iframe src={`${base}prabhaav_resume.pdf#view=FitH`} title="Resume"></iframe>
     </div>
 </section>
 
