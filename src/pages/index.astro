@@ -7,16 +7,16 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 
 const projects = [
     {
-        title: "Vision ASM",
-        tagline: "Open-source AI blind-spot monitoring for StarPilot vehicles.",
+        title: "Vision ASM: AI Blind-Spot Monitoring",
+        tagline: "Detects adjacent-lane vehicles in real time on embedded automotive hardware.",
         description:
-            "A safety-critical, community-driven vision system that detects vehicles in adjacent lanes using the driver-facing wide-angle camera. It ships in StarPilot's stable release and runs in real time on embedded automotive hardware.",
+            "A safety-critical, community-driven vision system built on the driver-facing wide-angle camera as a shipping production feature.",
         details: [
             "Appointed to Development Team with full repository write access to help steer project roadmap and backend architecture.",
             "Authored and merged 1.7K+ lines of C++/Python into production, deploying a real-time blind-spot monitor to thousands of active vehicles.",
             "Trained custom YOLO26n ONNX models on 27+ hours of crowdsourced driving video with semi-automated CAN-bus radar labeling.",
             "Engineered edge performance on Snapdragon SoCs using zero-copy NV12 buffer slicing and CPU core isolation under 1.2x throttle overhead.",
-            "Drove community adoption <a href=\"https://www.reddit.com/r/Comma_ai/comments/1v9i1af/what_else_can_the_driver_camera_do_i_taught_my/\" target=\"_blank\" rel=\"noopener noreferrer\">(36K+ views, 180+ upvotes on Reddit)</a> and maintained the production lifecycle across bug fixes and dataset updates.",
+            "Drove community adoption <a href=\"https://www.reddit.com/r/Comma_ai/comments/1v9i1af/what_else_can_the_driver_camera_do_i_taught_my/\" target=\"_blank\" rel=\"noopener noreferrer\">(43K+ views, 187 upvotes on Reddit)</a> and maintained the production lifecycle across bug fixes and dataset updates.",
         ],
         tags: ["Python", "C++", "YOLO", "ONNX", "Computer Vision"],
         cover: "vision-asm-1.gif",
@@ -29,16 +29,16 @@ const projects = [
         open: true,
     },
     {
-        title: "PiP Side Camera",
-        tagline: "Real-time Picture-in-Picture side preview for StarPilot.",
+        title: "Picture-in-Picture Side Camera",
+        tagline: "Side-window preview that appears only when you signal or a blind spot is detected.",
         description:
-            "A real-time driver-assist feature that renders a circular Picture-in-Picture bubble of the adjacent side window from the driver-facing wide-angle camera, surfacing exactly when the turn signal is engaged or a blind spot is detected.",
+            "A driver-assist overlay that surfaces the side view without the driver having to look away.",
         details: [
             "Appointed to the core StarPilot dev team with repo write access; authored and merged ~1K lines of C++/Python/GLSL to deploy the feature.",
             "Wrote a custom <a href=\"https://github.com/firestar5683/StarPilot/pull/83\" target=\"_blank\" rel=\"noopener noreferrer\">GLSL shader (PR #83)</a> that fuses Y/UV textures with a circular vignette mask, performing on-GPU NV12-to-RGB conversion for a smooth, cropped bubble preview.",
             "Engineered zero-copy NV12 buffer slicing and reactive crop-mask configuration for per-vehicle camera calibration.",
             "Built Galaxy web tooling with Flask REST APIs, a live frame snapshot endpoint, and a side-preview configuration UI with validation, plus unit tests for the device settings layout.",
-            "Wired the bubble to factory BSM, V-ASM, and turn-signal states so it only appears to provide additional lateral awarness.",
+            "Wired the bubble to factory BSM, V-ASM, and turn-signal states so it only appears to provide additional lateral awareness.",
         ],
         tags: ["Python", "C++", "GLSL", "OpenGL", "Computer Vision"],
         cover: "pipsidecam-1.png",
@@ -48,10 +48,30 @@ const projects = [
         link: "https://github.com/firestar5683/StarPilot/pull/83",
     },
     {
-        title: "UWM IT Goals Dashboard",
-        tagline: "Senior capstone with United Wholesale Mortgage.",
+        title: "StarPilot Galaxy: Mobile-First Remote Control Center",
+        tagline: "The first progressive web app for StarPilot, now the default for every user.",
         description:
-            "An interactive dashboard that helps UWM's IT department track goal progress and enables administrators to input custom data points. Team members get visual representations of goal data through graphics, colors, and charts to analyze trends at a glance.",
+            "Architected the Galaxy mobile-first Progressive Web App from scratch, authoring 22k+ lines of Vue/JS/CSS and Flask APIs to achieve 100% adoption and strong community acclaim.",
+        details: [
+            "Built Galaxy's settings, tools, navigation, tuning, models, Bluetooth/controllers, and device management into one unified frontend.",
+            "Reorganized every tuning control into clearly grouped sections and added a Theme Maker with a preset Theme Library for customizing the look of each style.",
+            "Added cookie-based mobile authentication and a fully responsive layout across phones and desktop.",
+            "Optimized for Firefox to remove lag on the heavily animated UI, and refactored the frontend into Vue native windows with consolidated, faster REST APIs.",
+        ],
+        tags: ["Vue", "JavaScript", "Python", "Flask", "CSS"],
+        cover: "galaxy-1.gif",
+        media: [
+            { type: "image", src: `${base}images/galaxy-1.gif` },
+            { type: "image", src: `${base}images/galaxy-2.gif` },
+            { type: "image", src: `${base}images/galaxy-3.png` },
+        ],
+        link: "https://github.com/firestar5683/StarPilot/commit/6f5e267493c40bc04b371f39e7857a62837f88e1",
+    },
+    {
+        title: "UWM (United Wholesale Mortgage) IT Goals Dashboard",
+        tagline: "Senior capstone built for a real enterprise client.",
+        description:
+            "An interactive dashboard that turns goal data into clear, color-coded charts for quick trend analysis.",
         details: [
             "Track both current and historical goal data to compare performance across months and years.",
             "Admins can add or edit yearly goals along with their metrics.",
@@ -69,7 +89,7 @@ const projects = [
         title: "Web Scraping & AI Content Recommendation Engine",
         tagline: "An AI-powered recommendation engine built from scratch to scrape, process, and organize content.",
         description:
-            "Built for a CSE 881 data mining course project, this system recommends movies using data gathered entirely from IMDb. It emphasizes a full pipeline: acquisition, preprocessing, feature engineering, and similarity scoring.",
+            "Built for a CSE 881 data mining course project, it emphasizes a complete, from-scratch pipeline rather than an off-the-shelf model.",
         details: [
             "Scraped and parsed raw IMDb datasets (titles, crew, ratings) plus custom HTML scraping for supplemental metadata.",
             "Built text embeddings from plot summaries to power cosine-similarity recommendations.",
@@ -100,10 +120,10 @@ const projects = [
         link: "https://github.com/prabhaavp/prabhaav-portfolio",
     },
     {
-        title: "PortVoy",
-        tagline: "Android app to discover, scan, and connect to local servers.",
+        title: "PortVoy: Local Network Server Scanner",
+        tagline: "Privacy-first Android utility with no tracking or ads.",
         description:
-            "A privacy-first Android utility that makes network scanning effortless. It inspects your network interface, scans a chosen port, and lets you connect: all with a simple interface and no data collection, tracking, or ads.",
+            "A lightweight, on-device tool for connecting to your own servers in a couple of taps.",
         details: [
             "Discover network interfaces (including hotspot connections) and scan for open ports.",
             "One-tap connect to frequently used servers like FrogPilot or Portainer via a settings shortcut.",
@@ -117,12 +137,12 @@ const projects = [
         link: "https://github.com/prabhaavp/PortVoy",
     },
     {
-        title: "Lon-Capa Grade Calculator",
-        tagline: "Grade calculator for Lon-Capa physics courses.",
+        title: "Lon-Capa Physics Grade Calculator",
+        tagline: "Paste a semester of scores and watch the grade update live.",
         description:
-            "A web-based calculator that turns copy-pasted Lon-Capa data into a detailed grade breakdown. Customize weights per category and instantly see your overall percentage and GPA classification.",
+            "Built for MSU physics courses that use the Lon-Capa platform, so students can see exactly where their grade stands.",
         details: [
-            "Paste lecture, homework, exam, and LearnSmart data in one go.",
+            "Import lecture, homework, exam, and LearnSmart scores in one go.",
             "Adjust weightage per category with live recalculation.",
             "Automatic grade & GPA classification with a modern, intuitive UI.",
         ],
@@ -134,13 +154,13 @@ const projects = [
         link: "https://github.com/prabhaavp/loncapa-physics-grade-calculator",
     },
     {
-        title: "StudyLink",
-        tagline: "Campus social app to meet peers, find events, and join groups.",
+        title: "StudyLink: Campus Social App",
+        tagline: "Meet classmates, discover events, and join interest-based groups.",
         description:
-            "An Android app built for a CSE 476 course project that helps students connect on campus: discover events and groups and find others in similar classes. Firebase-based account management keeps sign-up and data storage secure.",
+            "A personal Android project for a CSE 476 course, built around Firebase for authentication and real-time data.",
         details: [
-            "Connect with classmates, discover campus events, and join interest-based groups.",
-            "Firebase-powered authentication (create/delete accounts) and secure data storage.",
+            "Browse and search student profiles, events, and groups from a single feed.",
+            "Secure sign-up and account creation with persisted user data.",
             "Image saving/loading integrated via Firebase; polished profile and homescreen flows.",
         ],
         tags: ["Java", "Android", "Firebase"],
@@ -151,10 +171,10 @@ const projects = [
         link: "https://github.com/DevT02/cse476",
     },
     {
-        title: "Phantom Traffic Jam Study",
-        tagline: "Research on mitigating phantom traffic jams via CACC in mixed fleets.",
+        title: "Phantom Traffic Jam Simulation Study",
+        tagline: "Studies how partial autonomy adoption affects traffic-flow stability.",
         description:
-            "A collaborative study and multi-lane traffic simulation investigating whether Cooperative Adaptive Cruise Control (CACC) can act as a 'traffic shock absorber' in mixed fleets of human-driven and automated vehicles.",
+            "A collaborative study and multi-lane ring-road simulation testing whether Cooperative Adaptive Cruise Control (CACC) can act as a 'traffic shock absorber' in mixed fleets of human-driven and automated vehicles.",
         details: [
             "Modeled mixed-fleet traffic with IDM, CACC, and MOBIL in a ring-road simulation to reproduce phantom jams.",
             "Varied CACC penetration from 0% to 100% across single- and double-lane scenarios, measuring flow stability and congestion.",
